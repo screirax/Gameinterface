@@ -1,0 +1,12 @@
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: none;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
