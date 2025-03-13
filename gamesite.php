@@ -1,26 +1,3 @@
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $choice = $_POST['choice'] ?? '';
-    $response = "";
-
-    switch ($choice) {
-        case "1":
-            $response = "NPC: Byen ligger mod øst, følg vejen!";
-            break;
-        case "2":
-            $response = "NPC: Jeg har mistet min kat. Kan du finde den?";
-            break;
-        case "3":
-            $response = "NPC: Farvel, rejsende!";
-            break;
-        default:
-            $response = "NPC: Jeg forstår ikke...";
-    }
-}
-?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -59,15 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <ul>
 
     <li><button onclick="showDialog()">Gurad Merril</button></li>
+    <li><button onclick="completeQuestDialog()">Complete Quest</button></li>
 
-
-    <li><button onclick="showPopupcomplete()">Complete Quest</button></li>
-        <div id="popupcomplete" class="popup" style="background-color: darkorange">Quest Completed</div>
 </ul>
 
 <ul>
-    <li><button onclick="attackWolf()">Attack Wolf</button></li>
     <p id="wolfHealth">Wolf Health: 20</p>
+    <li><button onclick="attackWolf()">Attack Wolf</button></li>
     <div id="popupwolfdeath" class="popup" style="background-color: dodgerblue">
         <p>You have killed a wolf</p>
         <p>You gained 15 gold</p>
@@ -77,8 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </ul>
 
 <ul>
-    <li><button>Level Up x1</button></li>
-    <li><button>Level Up x5</button></li>
+    <li><button onclick="levelUpx1()">Level Up x1</button></li>
+    <li><button onclick="levelUpx5()">Level Up x5</button></li>
 
 </ul>
 
@@ -87,20 +62,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Guard Merril</h2>
             <p>Ah, en ny rejsende! Velkommen til Leafino, en perle midt i vildmarken. Du ser ud som en eventyrer – leder du efter arbejde, handel, eller blot en god historie?</p>
             <ul class="npcdialogul">
-                <li onclick="acceptQuest()">1. Jeg søger eventyr!</li>
+                <li onclick="infoAboutQuest()">1. Jeg søger eventyr!</li>
                 <li onclick="askAboutTown()">2. Fortæl mig mere om Leafino</li>
                 <li onclick="closeDialog()">3. Jeg er bare på gennemrejse</li>
             </ul>
         </div>
     </div>
 
+    <div id="townDialog" class="dialog">
+        <div class="dialog-content">
+            <h2>Guard Merril</h2>
+            <p>Leafino er en fredelig by, beliggende i den frodige dal. Byen er kendt for sine rige skove og venlige indbyggere, men også for de mystiske ruiner, der ligger øst for byen.</p>
+            <ul class="npcdialogul">
+                <li onclick="showDialog()">1. Kan jeg spørge om noget andet?</li>
+                <li onclick="closeDialog()">2. Farvel</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="questDialog" class="dialog">
+        <div class="dialog-content">
+            <h2>Guard Merril</h2>
+            <p>Vi har desværre lidt under ulveangreb, som har taget livet af flere af vores får. Vore forsvar er svage, og vi er alt for få til at beskytte os selv ordentligt her i barrakken. Hvis du kunne hjælpe os ved at dræbe disse ulve og bringe en af deres fortænder som bevis, ville det være en kæmpe hjælp. Som tak for din indsats vil vi sørge for en passende belønning. Kan vi regne med din hjælp?</p>
+            <ul class="npcdialogul">
+                <li onclick="acceptQuest()">1. Accept Quest</li>
+                <li onclick="closeDialog()">2. Decline Quest</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="questDoneDialog" class="dialog">
+        <div class="dialog-content">
+            <h2>Guard Merril</h2>
+            <p>Ah, du er tilbage! Og du har virkelig bragt en af deres fortænder som bevis. Jeg kan se, at du har været igennem en hård kamp. Vi er dybt taknemmelige for din hjælp. Du har reddet vores får og sikret vores fremtid her i barrakken. Som lovet, her er din belønning – vi håber, den vil hjælpe dig på din rejse. Tak igen, og vær forsigtig derude!</p>
+            <ul class="npcdialogul">
+                <li onclick="completeQuest()">1. Complete Quest</li>
+                <li onclick="closeDialog()">2. Farvel</li>
+            </ul>
+        </div>
+    </div>
+
+
     <div id="popup" class="popup" style="background-color: darkorange">Quest Accepted</div>
+    <div id="popupcomplete" class="popup" style="background-color: darkorange">Quest Completed <br> You have gained a level<br>20 Gold</div>
+    <div id="levelup" class="popup" style="background-color: yellow; ">You have gained 1 level</div>
+    <div id="levelupxFive" class="popup" style="background-color: yellow; ">You have gained 5 level</div>
 
 </div>
 
 </div>
 <script>
     let wolfHealth = 20;
+    let playerlevel = 1;
+
+
 
 
     function showPopup() {
@@ -153,13 +168,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
+    function levelUpx1(){
+        playerlevel += 1;
+
+
+        document.getElementById("playerlevel").innerText = playerlevel;
+        let popup = document.getElementById("levelup");
+        popup.style.display = "block";
+        popup.style.opacity = "1";
+
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 1000);
+        }, 4000);
+
+    }
+
+
+    function levelUpx5(){
+        playerlevel += 5;
+
+
+        document.getElementById("playerlevel").innerText = playerlevel;
+        let popup = document.getElementById("levelupxFive");
+        popup.style.display = "block";
+        popup.style.opacity = "1";
+
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 1000);
+        }, 4000);
+
+    }
 
     function showDialog() {
+        document.getElementById("townDialog").style.display = "none";
         document.getElementById("npcDialog").style.display = "block";
     }
 
     function closeDialog() {
         document.getElementById("npcDialog").style.display = "none";
+        document.getElementById("townDialog").style.display = "none";
+        document.getElementById("questDialog").style.display = "none";
+        document.getElementById("questDoneDialog").style.display = "none";
     }
 
     function acceptQuest() {
@@ -176,9 +231,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }, 4000);
         closeDialog();
     }
+    function completeQuest() {
+        playerlevel += 1;
+
+
+        document.getElementById("playerlevel").innerText = playerlevel;
+
+        let popup = document.getElementById("popupcomplete");
+        popup.style.display = "block";
+        popup.style.opacity = "1";
+
+
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 1000);
+        }, 4000);
+        closeDialog();
+    }
+
 
     function askAboutTown() {
+        closeDialog();
 
+        document.getElementById("townDialog").style.display = "block";
+    }
+    function infoAboutQuest() {
+        closeDialog();
+
+        document.getElementById("questDialog").style.display = "block";
+    }
+    function completeQuestDialog () {
+        document.getElementById("questDoneDialog").style.display= "block";
     }
 </script>
 </body>

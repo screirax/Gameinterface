@@ -4,6 +4,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: darkslategrey;
 }
 #container{
     position: absolute;
@@ -72,7 +73,12 @@ button {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
-
+#levelup {
+    color: black;
+}
+#levelupxFive {
+    color: black;
+}
 #playercontainer {
     display: flex;
     align-items: center;
