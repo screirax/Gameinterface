@@ -1,3 +1,65 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    width: 1080px;
+    background-color: darkgray;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.containerlist {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#minimap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: green; /* Mørk baggrund */
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#player-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .popup {
     position: fixed;
     bottom: 20px;
@@ -9,4 +71,105 @@
     display: none;
     opacity: 1;
     transition: opacity 1s ease-in-out;
+}
+
+#playercontainer {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 50px;
+    width: 250px;
+    padding: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.playerpicture {
+    background-color: lightgray;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.playerinfo {
+    margin-left: 10px;
+    width: 100%;
+}
+
+.playername {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.playerlevel {
+    font-size: 14px;
+}
+
+.playerhealthbar, .playermanabar {
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 2px;
+
+}
+
+.playerhealth {
+    height: 100%;
+    background-color: limegreen;
+    border-bottom-right-radius: 10px;
+}
+
+.playermana {
+    height: 100%;
+    background-color: blue;
+    border-bottom-right-radius: 10px;
+}
+
+
+.dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 300px;
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    z-index: 10;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dialog-content {
+    position: relative;
+}
+.npcdialogul{
+    flex-direction: column;
+    list-style-type: none;
+    align-items: flex-start;
+    padding: 0;
+    margin: 0;
+}
+.npcdialogul li{
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+
+}
+
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
 }
