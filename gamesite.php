@@ -56,6 +56,25 @@
     <li><button onclick="levelUpx5()">Level Up x5</button></li>
 
 </ul>
+    <ul>
+        <li><button onclick="gameMenu()">Menu</button></li>
+    </ul>
+
+    <div id="gameMenu" >
+        <div class="menu-content">
+            <h2>Game Paused</h2>
+
+            <ul id="gameMenuList">
+                <li class="menuItem" onclick="closeDialog()">Resume Game</li>
+                <li class="menuItem" onclick="gameSaved()">Save Game</li>
+                <li class="menuItem">Load Game</li>
+                <li class="menuItem">Settings</li>
+                <li class="menuItem">Quit Game</li>
+
+            </ul>
+
+        </div>
+    </div>
 
     <div id="npcDialog" class="dialog">
         <div class="dialog-content">
@@ -107,164 +126,11 @@
     <div id="popupcomplete" class="popup" style="background-color: darkorange">Quest Completed <br> You have gained a level<br>20 Gold</div>
     <div id="levelup" class="popup" style="background-color: yellow; ">You have gained 1 level</div>
     <div id="levelupxFive" class="popup" style="background-color: yellow; ">You have gained 5 level</div>
+    <div id="saveGame" class="popup" style="background-color: dodgerblue; ">Game has been saved</div>
 
 </div>
 
 </div>
-<script>
-    let wolfHealth = 20;
-    let playerlevel = 1;
-
-
-
-
-    function showPopup() {
-        let popup = document.getElementById("popup");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-
-        setTimeout(() => {
-        popup.style.opacity = "0";
-        setTimeout(() => {
-            popup.style.display = "none";
-        }, 1000);
-        }, 4000);
-    }
-    function showPopupcomplete() {
-        let popup = document.getElementById("popupcomplete");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-        setTimeout(() => {
-            popup.style.opacity = "0";
-            setTimeout(() => {
-                popup.style.display = "none";
-            }, 1000);
-        }, 4000);
-    }
-    function attackWolf(){
-        let damage = Math.floor(Math.random() * 5) + 1;
-        wolfHealth -= damage;
-        if (wolfHealth < 0) wolfHealth = 0;
-        document.getElementById("wolfHealth").innerText = "Wolf Health: " + wolfHealth;
-
-        if (wolfHealth === 0) {
-            let popup = document.getElementById("popupwolfdeath");
-            popup.style.display = "block";
-            popup.style.opacity = "1";
-
-            setTimeout(() => {
-                popup.style.opacity = "0";
-                setTimeout(() => {
-                    popup.style.display = "none";
-                }, 1000);
-            }, 8000);
-
-        }
-    }
-
-    function wolfAttack(){
-
-    }
-
-    function levelUpx1(){
-        playerlevel += 1;
-
-
-        document.getElementById("playerlevel").innerText = playerlevel;
-        let popup = document.getElementById("levelup");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-        setTimeout(() => {
-            popup.style.opacity = "0";
-            setTimeout(() => {
-                popup.style.display = "none";
-            }, 1000);
-        }, 4000);
-
-    }
-
-
-    function levelUpx5(){
-        playerlevel += 5;
-
-
-        document.getElementById("playerlevel").innerText = playerlevel;
-        let popup = document.getElementById("levelupxFive");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-        setTimeout(() => {
-            popup.style.opacity = "0";
-            setTimeout(() => {
-                popup.style.display = "none";
-            }, 1000);
-        }, 4000);
-
-    }
-
-    function showDialog() {
-        document.getElementById("townDialog").style.display = "none";
-        document.getElementById("npcDialog").style.display = "block";
-    }
-
-    function closeDialog() {
-        document.getElementById("npcDialog").style.display = "none";
-        document.getElementById("townDialog").style.display = "none";
-        document.getElementById("questDialog").style.display = "none";
-        document.getElementById("questDoneDialog").style.display = "none";
-    }
-
-    function acceptQuest() {
-        let popup = document.getElementById("popup");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-
-        setTimeout(() => {
-            popup.style.opacity = "0";
-            setTimeout(() => {
-                popup.style.display = "none";
-            }, 1000);
-        }, 4000);
-        closeDialog();
-    }
-    function completeQuest() {
-        playerlevel += 1;
-
-
-        document.getElementById("playerlevel").innerText = playerlevel;
-
-        let popup = document.getElementById("popupcomplete");
-        popup.style.display = "block";
-        popup.style.opacity = "1";
-
-
-        setTimeout(() => {
-            popup.style.opacity = "0";
-            setTimeout(() => {
-                popup.style.display = "none";
-            }, 1000);
-        }, 4000);
-        closeDialog();
-    }
-
-
-    function askAboutTown() {
-        closeDialog();
-
-        document.getElementById("townDialog").style.display = "block";
-    }
-    function infoAboutQuest() {
-        closeDialog();
-
-        document.getElementById("questDialog").style.display = "block";
-    }
-    function completeQuestDialog () {
-        document.getElementById("questDoneDialog").style.display= "block";
-    }
-</script>
+<script src="main.js"></script>
 </body>
 </html>
