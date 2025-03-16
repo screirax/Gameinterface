@@ -60,24 +60,10 @@
         <li><button onclick="gameMenu()">Menu</button></li>
     </ul>
 
-    <div id="gameMenu" >
-        <div class="menu-content">
-            <h2>Game Paused</h2>
-
-            <ul id="gameMenuList">
-                <li class="menuItem" onclick="closeDialog()">Resume Game</li>
-                <li class="menuItem" onclick="gameSaved()">Save Game</li>
-                <li class="menuItem">Load Game</li>
-                <li class="menuItem">Settings</li>
-                <li class="menuItem">Quit Game</li>
-
-            </ul>
-
-        </div>
-    </div>
+    <?php include 'components/gameMenu.php';   ?>
 
     <div id="npcDialog" class="dialog">
-        <div class="dialog-content">
+        <div class="dialogContent">
             <h2>Guard Merril</h2>
             <p>Ah, en ny rejsende! Velkommen til Leafino, en perle midt i vildmarken. Du ser ud som en eventyrer – leder du efter arbejde, handel, eller blot en god historie?</p>
             <ul class="npcdialogul">
@@ -89,7 +75,7 @@
     </div>
 
     <div id="townDialog" class="dialog">
-        <div class="dialog-content">
+        <div class="dialogContent">
             <h2>Guard Merril</h2>
             <p>Leafino er en fredelig by, beliggende i den frodige dal. Byen er kendt for sine rige skove og venlige indbyggere, men også for de mystiske ruiner, der ligger øst for byen.</p>
             <ul class="npcdialogul">
@@ -100,7 +86,7 @@
     </div>
 
     <div id="questDialog" class="dialog">
-        <div class="dialog-content">
+        <div class="dialogContent">
             <h2>Guard Merril</h2>
             <p>Vi har desværre lidt under ulveangreb, som har taget livet af flere af vores får. Vore forsvar er svage, og vi er alt for få til at beskytte os selv ordentligt her i barrakken. Hvis du kunne hjælpe os ved at dræbe disse ulve og bringe en af deres fortænder som bevis, ville det være en kæmpe hjælp. Som tak for din indsats vil vi sørge for en passende belønning. Kan vi regne med din hjælp?</p>
             <ul class="npcdialogul">
@@ -111,7 +97,7 @@
     </div>
 
     <div id="questDoneDialog" class="dialog">
-        <div class="dialog-content">
+        <div class="dialogContent">
             <h2>Guard Merril</h2>
             <p>Ah, du er tilbage! Og du har virkelig bragt en af deres fortænder som bevis. Jeg kan se, at du har været igennem en hård kamp. Vi er dybt taknemmelige for din hjælp. Du har reddet vores får og sikret vores fremtid her i barrakken. Som lovet, her er din belønning – vi håber, den vil hjælpe dig på din rejse. Tak igen, og vær forsigtig derude!</p>
             <ul class="npcdialogul">
@@ -122,11 +108,10 @@
     </div>
 
 
-    <div id="popup" class="popup" style="background-color: darkorange">Quest Accepted</div>
-    <div id="popupcomplete" class="popup" style="background-color: darkorange">Quest Completed <br> You have gained a level<br>20 Gold</div>
-    <div id="levelup" class="popup" style="background-color: yellow; ">You have gained 1 level</div>
-    <div id="levelupxFive" class="popup" style="background-color: yellow; ">You have gained 5 level</div>
-    <div id="saveGame" class="popup" style="background-color: dodgerblue; ">Game has been saved</div>
+    <?php include 'components/gameSettings.php';
+        include 'components/popup.php';
+        ?>
+
 
 </div>
 

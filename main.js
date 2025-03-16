@@ -102,6 +102,23 @@ function gameSaved(){
     }, 4000);
 
 }
+function saveSettings () {
+    let popup = document.getElementById("saveSettings");
+    popup.style.display = "block";
+    popup.style.opacity = "1";
+
+    setTimeout(() => {
+        popup.style.opacity = "0";
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 1000);
+    }, 4000);
+}
+
+function quitGame() {
+    window.location.href = "index.php";
+
+}
 
 function acceptQuest() {
     let popup = document.getElementById("popup");
@@ -142,6 +159,12 @@ function gameMenu() {
     document.getElementById("gameMenu").style.display = "block";
 }
 
+function gameSettings() {
+    document.getElementById("gameSettings").style.display = "block";
+    document.getElementById("gameMenu").style.display = "none";
+
+}
+
 
 function showDialog() {
     document.getElementById("townDialog").style.display = "none";
@@ -154,7 +177,13 @@ function closeDialog() {
     document.getElementById("questDialog").style.display = "none";
     document.getElementById("questDoneDialog").style.display = "none";
     document.getElementById("gameMenu").style.display = "none";
+    document.getElementById("gameSettings").style.display = "none";
 }
+function closeDialogSettings(){
+    document.getElementById("gameSettings").style.display = "none";
+    document.getElementById("gameMenu").style.display = "block";
+}
+
 
 function askAboutTown() {
     closeDialog();

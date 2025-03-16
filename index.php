@@ -11,6 +11,33 @@
 <body>
     <div id="container">
 
+            <div id="mainMenu" style="display: block" >
+                <div class="menu-content">
+
+
+                    <ul id="gameMenuList">
+                        <li class="menuItem" onclick="closeDialog()">New Game</li>
+                        <li class="menuItem" onclick="location.reload();">Load Game</li>
+                        <li class="menuItem" onclick="gameSettings()">Settings</li>
+                        <li class="menuItem" onload="quitGame()">Credits</li>
+                        <li class="menuItem" onload="quitGame()">Quit Game</li>
+
+                    </ul>
+
+                </div>
+            </div>
+
+
+
+        <?php include 'components/gameSettings.php';
+        include 'components/popup.php';
+        ?>
+
+
+
     </div>
+
+    <script src="main.js"></script>
 </body>
+
 </html>
