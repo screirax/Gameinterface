@@ -120,6 +120,11 @@ function quitGame() {
 
 }
 
+function newGame() {
+    window.location.href = "gamesite.php";
+
+}
+
 function acceptQuest() {
     let popup = document.getElementById("popup");
     popup.style.display = "block";

@@ -9,7 +9,7 @@
             <li class="menuItem" onclick="gameSaved()">Save Game</li>
             <li class="menuItem" onclick="location.reload();">Load Game</li>
             <li class="menuItem" onclick="gameSettings()">Settings</li>
-            <li class="menuItem" onload="quitGame()">Quit Game</li>
+            <li class="menuItem" onclick="quitGame()">Quit Game</li>
 
         </ul>
 

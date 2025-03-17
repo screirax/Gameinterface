@@ -9,15 +9,15 @@
     <title>Main Menu</title>
 </head>
 <body>
-    <div id="container">
+    <div id="container" class="indexcontainer">
 
             <div id="mainMenu" style="display: block" >
                 <div class="menu-content">
 
 
                     <ul id="gameMenuList">
-                        <li class="menuItem" onclick="closeDialog()">New Game</li>
-                        <li class="menuItem" onclick="location.reload();">Load Game</li>
+                        <li class="menuItem" onclick="newGame()">New Game</li>
+                        <li class="menuItem" onclick="newGame()">Load Game</li>
                         <li class="menuItem" onclick="gameSettings()">Settings</li>
                         <li class="menuItem" onload="quitGame()">Credits</li>
                         <li class="menuItem" onload="quitGame()">Quit Game</li>
