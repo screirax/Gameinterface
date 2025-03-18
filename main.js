@@ -51,9 +51,7 @@ function attackWolf(){
     }
 }
 
-function wolfAttack(){
 
-}
 
 function levelUpx1(){
     playerlevel += 1;
@@ -115,16 +113,6 @@ function saveSettings () {
     }, 4000);
 }
 
-function quitGame() {
-    window.location.href = "index.php";
-
-}
-
-function newGame() {
-    window.location.href = "gamesite.php";
-
-}
-
 function acceptQuest() {
     let popup = document.getElementById("popup");
     popup.style.display = "block";
@@ -159,14 +147,27 @@ function completeQuest() {
     }, 4000);
     closeDialog();
 }
-
 function gameMenu() {
     document.getElementById("gameMenu").style.display = "block";
 }
 
+
 function gameSettings() {
     document.getElementById("gameSettings").style.display = "block";
     document.getElementById("gameMenu").style.display = "none";
+
+}
+
+function quitGame() {
+    if (confirm("Are you sure you want to quit the game?")){
+
+    window.location.href = "index.php";
+    }
+
+}
+
+function newGame() {
+    window.location.href = "gamesite.php";
 
 }
 
