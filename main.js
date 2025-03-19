@@ -2,8 +2,6 @@ let wolfHealth = 20;
 let playerlevel = 1;
 
 
-
-
 function showPopup() {
     let popup = document.getElementById("popup");
     popup.style.display = "block";
@@ -61,6 +59,7 @@ function levelUpx1(){
     let popup = document.getElementById("levelup");
     popup.style.display = "block";
     popup.style.opacity = "1";
+
 
     setTimeout(() => {
         popup.style.opacity = "0";
